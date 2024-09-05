@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+#define MOD 1000000007
+#define PI 3.1415926535897932384626433832795
+
+using namespace std;
+
+
+int main(){
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // LOGIC
+  
+  set<int> s;
+  string name;
+  cin>>name;
+  for(auto& ch: name){
+    s.insert(ch);
+  }
+  if(s.size() % 2 == 0){
+    cout<<"CHAT WITH HER!";
+  }
+  else{
+    cout<<"IGNORE HIM!";
+  }
+
+  return 0;
+}
