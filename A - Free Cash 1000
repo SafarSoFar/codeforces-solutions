@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+
+#define MOD 1000000007
+#define PI 3.1415926535897932384626433832795
+
+using namespace std;
+
+void solve() {
+  int n;
+  cin >> n;
+  unordered_map<string, int> mp;
+  while (n-- > 0) {
+    int hour, min;
+    cin >> hour;
+    cin >> min;
+    string time = to_string(hour);
+    time += ":";
+    time += to_string(min);
+    mp[time]++;
+  }
+  int max = 0;
+  for (auto &[key, val] : mp) {
+    max = std::max(max, val);
+  }
+  cout << max << '\n';
+}
+
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // LOGIC
+
+  solve();
+
+  return 0;
+}
