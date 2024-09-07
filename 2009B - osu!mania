@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+
+#define MOD 1000000007
+#define PI 3.1415926535897932384626433832795
+
+using namespace std;
+
+void solve() {
+  int tc;
+  cin >> tc;
+  while (tc-- > 0) {
+    int rows;
+    cin >> rows;
+    stack<int> st;
+    while (rows-- > 0) {
+      string curRow;
+      cin >> curRow;
+      for (int j = 0; j < 4; j++) {
+        if (curRow[j] == '#') {
+          st.push(j + 1);
+        }
+      }
+    }
+    while (!st.empty()) {
+      int cur = st.top();
+      st.pop();
+      cout << cur << ' ';
+    }
+    cout << '\n';
+  }
+}
+
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // LOGIC
+  solve();
+
+  return 0;
+}
