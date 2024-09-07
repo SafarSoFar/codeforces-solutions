@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+
+#define MOD 1000000007
+#define PI 3.1415926535897932384626433832795
+
+using namespace std;
+
+void solve() {
+  /*int tc;*/
+  /*cin >> tc;*/
+  /*while (tc-- > 0) {*/
+  /*}*/
+  int n = 0;
+  cin >> n;
+  int max = 1;
+  int vals[n];
+  for (int i = 0; i < n; i++) {
+    cin >> vals[i];
+  }
+  int count = 1;
+  for (int i = 1; i < n; i++) {
+    if (vals[i - 1] >= vals[i]) {
+      count = 1;
+    } else {
+      count++;
+      max = std::max(count, max);
+    }
+  }
+  cout << max << '\n';
+}
+
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // LOGIC
+  solve();
+
+  return 0;
+}
