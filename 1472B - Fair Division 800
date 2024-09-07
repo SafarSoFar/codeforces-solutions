@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+
+#define MOD 1000000007
+#define PI 3.1415926535897932384626433832795
+
+using namespace std;
+
+void solve() {
+  int tc;
+  cin >> tc;
+  while (tc-- > 0) {
+    int received;
+    cin >> received;
+    int one = 0;
+    int two = 0;
+    for (int i = 0; i < received; i++) {
+      int cur = 0;
+      cin >> cur;
+      if (cur == 1)
+        one++;
+      else
+        two++;
+    }
+    int sum = two * 2 + one;
+    if (sum % 2 != 0) {
+      cout << "NO" << '\n';
+      continue;
+    }
+    int half = sum / 2;
+    int cur = 0;
+    while (cur != half) {
+      if (cur + 2 <= half && two > 0) {
+        two--;
+        cur += 2;
+      } else if (cur + 1 <= half && one > 0) {
+        one--;
+        cur++;
+      } else {
+        break;
+      }
+    }
+    if (cur == half) {
+      cout << "YES" << '\n';
+    } else {
+      cout << "NO" << '\n';
+    }
+    // cout << "ones :" << one << " twos:" << two << '\n';
+  }
+}
+
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // LOGIC
+  solve();
+
+  return 0;
+}
