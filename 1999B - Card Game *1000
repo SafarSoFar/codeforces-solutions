@@ -1,0 +1,90 @@
+#include <bits/stdc++.h>
+#include <pthread.h>
+
+#define MOD 1000000007
+#define PI 3.1415926535897932384626433832795
+
+using namespace std;
+
+void solve() {
+  int tc;
+  cin >> tc;
+  while (tc-- > 0) {
+    vector<int> a(4);
+    int wins = 0;
+    for (int i = 0; i < 4; i++) {
+      int cur = 0;
+      cin >> cur;
+      a[i] = cur;
+    }
+
+    int w = 0;
+    int l = 0;
+
+    for (int i = 0; i < 2; i++) {
+      if (a[i] > a[i + 2]) {
+        w++;
+      } else if (a[i] < a[i + 2]) {
+        l++;
+      }
+    }
+    if (w > l) {
+      wins++;
+    }
+    w = 0;
+    l = 0;
+
+    for (int i = 0; i < 2; i++) {
+      if (a[i] > a[3 - i]) {
+        w++;
+      } else if (a[i] < a[3 - i]) {
+        l++;
+      }
+    }
+    if (w > l) {
+      wins++;
+    }
+    w = 0;
+    l = 0;
+
+    for (int i = 1; i >= 0; i--) {
+      if (a[i] > a[i + 2]) {
+        w++;
+      } else if (a[i] < a[i + 2]) {
+        l++;
+      }
+    }
+    if (w > l) {
+      wins++;
+    }
+    w = 0;
+    l = 0;
+
+    for (int i = 1; i >= 0; i--) {
+      if (a[i] > a[3 - i]) {
+        w++;
+      } else if (a[i] < a[3 - i]) {
+        l++;
+      }
+    }
+    if (w > l) {
+      wins++;
+    }
+    cout << wins << '\n';
+
+    // 0 2
+    // 0 3
+    // 1 2
+    // 2 3
+  }
+}
+
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // LOGIC
+  solve();
+
+  return 0;
+}
